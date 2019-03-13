@@ -1,0 +1,16 @@
+{
+  "name": "todo-app",
+  "version": "0.0.1",
+  "description": "JS playground",
+  "main": "app.js",
+  "dependencies": {
+    "live-server": "^1.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node_modules/.bin/live-server"
+  },
+  "author": "Nandor Devai <mail@devainandor.com>",
+  "license": "ISC"
+}
