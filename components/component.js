@@ -1,12 +1,8 @@
 export const Component = {
 
     renderTo(element) {
-        const initial = element.innerHTML === '';
         element.innerHTML = '';
         element.appendChild(this.renderedEl());
-        if (initial) {
-            this.bindEvents(element);
-        }
     },
 
     renderedEl() {

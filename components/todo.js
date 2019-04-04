@@ -5,6 +5,8 @@ export const Todo = {...Component,
 
     cssClass: 'todo',
 
+    initialized: false,
+
     data: {
         items: [
         {
@@ -18,6 +20,15 @@ export const Todo = {...Component,
             finished: false,
         },
         ],
+    },
+
+    init(element) {
+        if (this.initialized) {
+            return;
+        }
+        this.renderTo(element);
+        this.bindEvents(element);
+        this.initialized = true;
     },
 
     bindEvents(element) {
