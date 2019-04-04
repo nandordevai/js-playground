@@ -2,6 +2,7 @@ export const Component = {
     renderTo(element) {
         element.innerHTML = '';
         element.appendChild(this.renderedEl());
+        this.bindEvents(element);
     },
 
     renderedEl() {

@@ -1,4 +1,4 @@
-.finished {
+.todo__item--finished {
     text-decoration: line-through;
 }
 
