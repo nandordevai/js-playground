@@ -2,7 +2,9 @@ import { html } from '/lib.js';
 import { Component } from '/components/component.js';
 
 export const Todo = {...Component, 
+
     cssClass: 'todo',
+
     data: {
         items: [
         {
@@ -20,8 +22,11 @@ export const Todo = {...Component,
 
     bindEvents(element) {
         element.addEventListener('click', (event) => {
-            if (event.target.classList.contains(`${this.cssClass}__item`)) {
-                event.target.classList.toggle(`${this.cssClass}__item--finished`);
+            const el = event.target;
+            if (el.classList.contains(`${this.cssClass}__item`)) {
+                const item = this.data.items.find(_ => _.id === this.getNumericId(el.id));
+                item.finished = !item.finished;
+                this.renderTo(element);
             }
         });
     },
@@ -39,8 +44,22 @@ export const Todo = {...Component,
         return this.data.items.map(_ => this.item(_));
     },
 
-    item(data) {
-        return html`<li id="${data.id}" class="${this.cssClass}__item ${data.finished ? 'finished' : ''}">${data.text}</li>`;
+    getNumericId(id) {
+        return parseInt(id.split('_')[2]);
     },
+
+    getUID(id) {
+        return `${this.cssClass}_item_${id}`;
+    },
+
+    item(data) {
+        return html`
+        <li
+            id="${this.getUID(data.id)}"
+            class="${this.cssClass}__item
+            ${data.finished ? `${this.cssClass}__item--finished` : ''}"
+        >${data.text}</li>`;
+    },
+
 };
 

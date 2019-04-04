@@ -1,8 +1,12 @@
 export const Component = {
+
     renderTo(element) {
+        const initial = element.innerHTML === '';
         element.innerHTML = '';
         element.appendChild(this.renderedEl());
-        this.bindEvents(element);
+        if (initial) {
+            this.bindEvents(element);
+        }
     },
 
     renderedEl() {
@@ -13,5 +17,6 @@ export const Component = {
         const el = document.createElement('template');
         el.innerHTML = this.getHTML();
         return el;
-    }
+    },
+
 };
