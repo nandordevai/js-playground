@@ -1,6 +1,4 @@
 export const Component = {
-    html: '',
-
     renderTo(element) {
         element.innerHTML = '';
         element.appendChild(this.renderedEl());
@@ -12,7 +10,7 @@ export const Component = {
 
     template() {
         const el = document.createElement('template');
-        el.innerHTML = this.html;
+        el.innerHTML = this.getHTML();
         return el;
     }
-}
+};
