@@ -1,0 +1,8 @@
+- move initialization to Component
+- simplify event handling -- add onClick etc. functions?
+- subcomponents
+- SCSS? (if really needed)
+- see if html tagged template can be improved
+- event binding only adds new events
+- generate UIDs for all components?
+
